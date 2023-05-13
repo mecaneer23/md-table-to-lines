@@ -33,7 +33,6 @@ def md_table_to_lines(
     for i, _ in enumerate(lines):
         remove += ["|", "\n"]
         for item in remove:
-            lines[i] = lines[i].replace(item, "")
-        lines[i] = lines[i].strip()
+            lines[i] = lines[i].replace(item, "").strip()
     lines[1] = lines[1].replace(" ", "-")
     return lines
