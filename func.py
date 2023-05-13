@@ -4,7 +4,19 @@ def md_table_to_lines(
     filename: str = "README.md",
     remove: list[str] = [],
     column_count: int = 2,
-):
+) -> list[str]:
+    """Converts a markdown table to a list of formatted strings.
+
+    Args:
+        first_line_idx (int): Index of the first line of the markdown table to be converted.
+        last_line_idx (int): Index of the last line of the markdown table (+ 1) to be converted.
+        filename (str, optional): Name of the markdown file containing the table. Defaults to "README.md".
+        remove (list[str], optional): List of characters to be removed from each line. Defaults to [].
+        column_count (int, optional): Number of columns in the markdown table. Defaults to 2.
+
+    Returns:
+        List of formatted strings representing the converted markdown table.
+    """
     # get raw lines
     with open(str(filename)) as f:
         lines = f.readlines()[first_line_idx - 1 : last_line_idx - 1]
