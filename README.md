@@ -47,7 +47,7 @@ Pineapple  1         $3.50
 | **-n**          | Do not overwrite existing files |
 
 ```python
->>> print("\n".join(md_table_to_lines(40, 47, remove=["**"])))
+>>> print("\n".join(md_table_to_lines(41, 48, remove=["**"])))
 Flag         Description
 --------------------------------------------
 -h           Display help message
