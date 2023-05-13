@@ -31,7 +31,6 @@ def md_table_to_lines(
             lines = f.readlines()[first_line_idx - 1 : last_line_idx - 1]
     except FileNotFoundError:
         raise FileNotFoundError("Markdown file not found.")
-    print(lines[0])
 
     # Remove unwanted characters and split each line into a list of values
     for i, _ in enumerate(lines):
@@ -40,20 +39,17 @@ def md_table_to_lines(
         lines[i] = lines[i].split("|")[1:-1]
     column_count = len(lines[0])
     lines[1] = ["-" for _ in range(column_count)]
-    print(lines[0])
 
     # Create lists of columns
     columns = [[0, []] for _ in range(column_count)]
     for i in range(column_count):
         for line in lines:
             columns[i][1].append(line[i])
-    print(lines[0])
 
     # Find the maximum length of each column
     for i, (_, v) in enumerate(columns):
         columns[i][0] = len(max([w.strip() for w in v], key=len))
     lines[1] = ["-" * (l + 1) for l, _ in columns]
-    print(lines[0])
 
     # Join the lines together into a list of formatted strings
     for i, line in enumerate(lines):
